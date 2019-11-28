@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./src/styles/estilos.css">
+    <title>Lista de Compras</title>
+</head>
+
+<body>
+
+    <div id="header">
+
+        <div id="header2">
+             <h2>Lista de Compras</h2>
+            
+        </div>
+
+
+        <h1>
+            Lista de Compras
+        </h1>
+
+    </div>
+
+    <div id="formularioSelect">
+      <form onsubmit="Adicionar(event)">
+            <label for="item">item:</label>
+            <select name="select" id="select">
+               
+            </select>
+
+            <label for="quantidade">Quantidade:</label>
+            <input type="number" name="numero" id="numero">
+
+            <input type="submit" value="Adicionar" >
+           
+        </form>
+
+    </div>
+
+    <div id="formularioLista">
+
+        <label for="lista">Minha lista</label>
+
+        <input onkeyup="filtrarItens()" placeholder="Digite a descrição do item" type="text" id="filtro">
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
