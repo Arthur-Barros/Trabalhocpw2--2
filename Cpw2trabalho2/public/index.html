@@ -12,42 +12,43 @@
 <body>
 
     <div id="header">
-
-        <div id="header2">
-             <h2>Lista de Compras</h2>
-            
-        </div>
-
-
+       
+        <img src="./src/img/mercado.png" alt="Imagem do mercado">
+        <div class="calibragem"></div>
         <h1>
             Lista de Compras
         </h1>
-
+        
     </div>
 
     <div id="formularioSelect">
-      <form onsubmit="Adicionar(event)">
-            <label for="item">item:</label>
-            <select name="select" id="select">
-               
-            </select>
 
-            <label for="quantidade">Quantidade:</label>
-            <input type="number" name="numero" id="numero">
+        <label for="item">Itens:</label>
+        <select  required name="select" id="select"></select>
 
-            <input type="submit" value="Adicionar" >
-           
-        </form>
+        <span id = "resposta"></span>
+
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" name="numero" id="numero">
+
+        
+        
+
+        <input type="submit" value="Adicionar">
+
+
 
     </div>
 
     <div id="formularioLista">
 
-        <label for="lista">Minha lista</label>
+        <label for="lista">Minha lista:</label>
 
         <input onkeyup="filtrarItens()" placeholder="Digite a descrição do item" type="text" id="filtro">
 
+        <img src="./src/img/carrinhodecompra.png" alt="carrinho de compra">
 
+        <img src="./src/img/lixeira.png" alt="lixeira para tirar o item selecionado">
 
 
     </div>
@@ -60,7 +61,7 @@
 
 
 
-
+    <script src="./src/js/index.js"></script>
 
 
 
