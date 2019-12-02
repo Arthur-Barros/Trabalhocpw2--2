@@ -12,27 +12,30 @@
 <body>
 
     <div id="header">
-       
+
         <img src="./src/img/mercado.png" alt="Imagem do mercado">
         <div class="calibragem"></div>
         <h1>
             Lista de Compras
         </h1>
-        
+
     </div>
 
     <div id="formularioSelect">
 
         <label for="item">Itens:</label>
-        <select  required name="select" id="select"></select>
+        <select onchange="carregarUnidadeDeMedida(event)" required name="select" id="select">
+            <option value="" disabled selected>Selecione um item</option>
+        </select>
 
-        <span id = "resposta"></span>
+        <span id="resposta"></span>
 
         <label for="quantidade">Quantidade:</label>
         <input type="number" name="numero" id="numero">
+        <span id="resposta"></span>
 
-        
-        
+
+
 
         <input type="submit" value="Adicionar">
 
