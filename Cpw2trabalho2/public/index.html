@@ -22,53 +22,35 @@
     </div>
 
     <div id="formularioSelect">
+        <form  onsubmit="incluirItem(event)">
+            <label for="item">Itens:</label>
+            <select onchange="carregarUnidadeDeMedida(event)" required name="select" id="select">
+                <option value="" disabled selected>Selecione um item</option>
+            </select>
+            <label for="quantidade">Quantidade:</label>
+            <input type="number" required name="numero" id="quantidade" min="1" > 
+            <span id="unidadeDeMedida">unidade de medida</span>
+            <input  type="submit" value="Incluir">
 
-        <label for="item">Itens:</label>
-        <select onchange="carregarUnidadeDeMedida(event)" required name="select" id="select">
-            <option value="" disabled selected>Selecione um item</option>
-        </select>
-
-        <span id="resposta"></span>
-
-        <label for="quantidade">Quantidade:</label>
-        <input type="number" name="numero" id="numero">
-        <span id="resposta"></span>
-
-
-
-
-        <input type="submit" value="Adicionar">
-
-
+        </form>
 
     </div>
 
-    <div id="formularioLista">
+    <div id="lista">
 
         <label for="lista">Minha lista:</label>
 
-        <input onkeyup="filtrarItens()" placeholder="Digite a descrição do item" type="text" id="filtro">
+        <input onkeyup="filtrarLista()" placeholder="Digite a descrição do item" type="text" id="filtro">
 
-        <img src="./src/img/carrinhodecompra.png" alt="carrinho de compra">
+        
 
-        <img src="./src/img/lixeira.png" alt="lixeira para tirar o item selecionado">
+        <div id="listaDosItens"></div>
+
 
 
     </div>
 
-
-
-
-
-
-
-
-
     <script src="./src/js/index.js"></script>
-
-
-
-
 
 </body>
 

@@ -38,7 +38,8 @@ body {
   margin-top: 10px;
 }
 #formularioSelect label,
-#formularioSelect input, #formularioSelect select {
+#formularioSelect input,
+#formularioSelect select {
   display: block;
   font-family: "padrao";
 }
@@ -50,7 +51,7 @@ body {
 }
 #formularioSelect select {
   height: 25px;
-  width: 150px;
+  width: 200px;
   font-size: 100%;
   border-radius: 5px;
   border: 1px solid #aaa;
@@ -80,26 +81,33 @@ body {
   border: none;
   font-weight: bold;
 }
+#formularioSelect #quantidade,
+#formularioSelect #unidadeDeMedida {
+  display: inline-block;
+}
+#formularioSelect #unidadeDeMedida {
+  font-family: "padrao";
+}
 
-#formularioLista {
+#lista {
   box-shadow: 2px 2px 2px #1F7A8C;
   margin: 10px;
   border-radius: 5px;
   padding: 20px 10px;
   margin-top: 30px;
 }
-#formularioLista label,
-#formularioLista input {
+#lista label,
+#lista input {
   display: block;
   font-family: "padrao";
 }
-#formularioLista label {
+#lista label {
   font-size: 120%;
   padding: 2px;
   font-family: "padrao";
   font-weight: bold;
 }
-#formularioLista input {
+#lista input {
   height: 25px;
   width: 250px;
   font-size: 100%;
@@ -109,8 +117,22 @@ body {
   padding-left: 5px;
   margin-top: 5px;
 }
-#formularioLista img {
-  margin-top: 40px;
+#lista #Carrinho {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#aviso {
+  display: block;
+  font-family: "padrao";
+  margin-top: 10px;
+  color: red;
+}
+
+button {
+  background-color: none;
+  padding: 20px;
+  box-shadow: none;
 }
 
 /*# sourceMappingURL=estilos.css.map */

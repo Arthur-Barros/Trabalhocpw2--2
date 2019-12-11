@@ -1,10 +1,10 @@
-@font-face{
+@font-face {
     font-family: "decorativa";
     src: url(../fonts/DancingScript-Regular.ttf);
 }
 
 
-@font-face{
+@font-face {
     font-family: "padrao";
     src: url(../fonts/Montserrat-Regular.ttf);
 }
@@ -13,12 +13,12 @@
 
 body {
     margin: 0;
-   
+
 }
 
 #header {
     background-color: #BFDBF7;
-    
+
     padding: 5px;
 
     * {
@@ -45,7 +45,7 @@ body {
 
 
 #formularioSelect {
-   
+
     //border: 1px solid #1F7A8C;
     box-shadow: 2px 2px 2px #1F7A8C;
     margin: 10px;
@@ -53,24 +53,25 @@ body {
     padding: 20px 10px;
     margin-top: 10px;
 
-  
-    
+
+
 
     label,
-    input,select {
+    input,
+    select {
         display: block;
         font-family: "padrao";
     }
 
-    label{
+    label {
         font-size: 120%;
         padding: 2px;
         font-family: "padrao";
         font-weight: bold;
-        
+
     }
 
-    select{
+    select {
         height: 25px;
         width: 200px;
         font-size: 100%;
@@ -79,11 +80,11 @@ body {
         padding-left: 5px;
         margin-bottom: 5px;
         margin-top: 5px;
-       
+
     }
 
-    input{
-        
+    input {
+
         width: 100px;
         font-size: 100%;
         /*Daqui para baixo e opcional*/
@@ -92,12 +93,12 @@ body {
         padding-left: 5px;
         margin-top: 5px;
 
-        &[type=number]{
+        &[type=number] {
             height: 20px;
             margin-bottom: 10px;
         }
 
-        &[type=submit]{
+        &[type=submit] {
             border-radius: 5px;
             padding: 10px 10px;
             border: 1px solid #aaa;
@@ -105,19 +106,27 @@ body {
             color: white;
             border: none;
             font-weight: bold;
-            
+
         }
 
 
     }
 
-    
+    #quantidade,
+    #unidadeDeMedida {
+        display: inline-block;
+    }
+
+    #unidadeDeMedida {
+        font-family: "padrao";
+    }
+
 
 
 }
 
 
-#formularioLista{
+#lista {
     box-shadow: 2px 2px 2px #1F7A8C;
     margin: 10px;
     border-radius: 5px;
@@ -130,14 +139,14 @@ body {
         font-family: "padrao";
     }
 
-    label{
+    label {
         font-size: 120%;
         padding: 2px;
         font-family: "padrao";
         font-weight: bold;
     }
 
-    input{
+    input {
         height: 25px;
         width: 250px;
         font-size: 100%;
@@ -148,11 +157,33 @@ body {
         margin-top: 5px;
     }
 
-    img{
-        margin-top: 40px;
+    #Carrinho{
+        display: inline-block;
+        vertical-align: middle;
         
     }
 
-   
+}
 
+
+
+
+#aviso {
+    display: block;
+
+    font-family: 'padrao';
+    margin-top: 10px;
+    color: red;
+
+
+
+
+}
+
+
+
+button {
+    background-color: none;
+    padding: 20px;
+    box-shadow: none;
 }
