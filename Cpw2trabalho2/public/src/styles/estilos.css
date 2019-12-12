@@ -117,9 +117,15 @@ body {
   padding-left: 5px;
   margin-top: 5px;
 }
-#lista #Carrinho {
-  display: inline-block;
-  vertical-align: middle;
+
+#tableItens {
+  margin-top: 20px;
+}
+
+#listaDosItens {
+  font-family: "padrao";
+  font-weight: bold;
+  font-size: 100%;
 }
 
 #aviso {
@@ -133,6 +139,97 @@ button {
   background-color: none;
   padding: 20px;
   box-shadow: none;
+}
+
+@media only screen and (max-width: 600px) {
+  #header {
+    height: 100%;
+  }
+  #header * {
+    display: inline;
+  }
+  #header img {
+    vertical-align: middle;
+    padding: 5px 0px 5px 10px;
+  }
+  #header h1 {
+    font-size: 150%;
+    padding: 10px 10px;
+    color: #053C5E;
+    vertical-align: middle;
+    font-family: "decorativa";
+    margin-left: 10px;
+  }
+
+  #formularioSelect {
+    box-shadow: 2px 2px 2px #1F7A8C;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 20px 10px;
+    margin-top: 10px;
+  }
+  #formularioSelect label,
+#formularioSelect input,
+#formularioSelect select {
+    display: block;
+    font-family: "padrao";
+  }
+  #formularioSelect label {
+    font-size: 120%;
+    padding: 2px;
+    font-family: "padrao";
+    font-weight: bold;
+  }
+  #formularioSelect select {
+    height: 25px;
+    width: 200px;
+    font-size: 100%;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding-left: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+  #formularioSelect input {
+    width: 100px;
+    font-size: 100%;
+    /*Daqui para baixo e opcional*/
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding-left: 5px;
+    margin-top: 5px;
+  }
+  #formularioSelect input[type=number] {
+    height: 20px;
+    margin-bottom: 10px;
+  }
+  #formularioSelect input[type=submit] {
+    border-radius: 5px;
+    padding: 10px 10px;
+    border: 1px solid #aaa;
+    background-color: #1F7A8C;
+    color: white;
+    border: none;
+    font-weight: bold;
+  }
+
+  #listaDosItens {
+    font-family: "padrao";
+    font-weight: bold;
+    font-size: 85%;
+  }
+
+  span {
+    font-family: "padrao";
+  }
+
+  #tabelaCompras {
+    display: none;
+  }
+
+  #filtro {
+    width: 90%;
+  }
 }
 
 /*# sourceMappingURL=estilos.css.map */

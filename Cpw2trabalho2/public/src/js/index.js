@@ -52,10 +52,6 @@ var itens = [{ descricao: 'Abacaxi', unidade: 'UN' }, { descricao: 'Absorvente',
 
 var lista = [];
 
-function salvar(itens) {
-    lista.push(itens);
-}
-
 function adicionar() {
 
     for (let i = 0; i < itens.length; i++) {
@@ -71,25 +67,25 @@ function adicionar() {
 }
 
 function incluirItem(event) {
-    
+
     event.preventDefault();
     let select = document.getElementById('select').value;
     let quantidade = document.getElementById('quantidade').value;
     let unidadeDeMedida = itens[select].unidade;
-    
-    let Minhalista = "";
 
-    Minhalista.innerText = itens[select].descricao, unidadeDeMedida, quantidade;
-    
-    salvar(Minhalista);
+    let MinhaLista = "";
+
+    MinhaLista = { descricao: this.itens[select].descricao, unidade: unidadeDeMedida, quantidade: quantidade, checado: false };
+
+    salvar(MinhaLista);
 
     limparFormulario();
 
-    let lista = recuperarTodos();
+    //let lista = recuperarTodos();
 
     document.getElementById('filtro').value = '';
 
-    renderizarlista(lista);
+    renderizarLista(this.lista);
 }
 
 
@@ -113,23 +109,23 @@ function carregarUnidadeDeMedida(event) {
     // }
 
 
-}
+} 
 
 
-function renderizarlista(lista) {
-    
+function renderizarLista(lista) {
+
     let areaListagemCompras = document.getElementById('listaDosItens');
     areaListagemCompras.innerHTML = '';
-    if (lista.length > 0) {
-        
+    if (this.lista.length > 0) {
+
         let table = document.createElement('table');
-        table.setAttribute('id','tabelaProdutos')
+        table.setAttribute('id', 'tableItens')
 
         let corpoDaLista = corpoLista(lista);
-       
+
         table.appendChild(corpoDaLista);
 
-        areaListagemCompras.appendChild(table);   
+        areaListagemCompras.appendChild(table);
 
     } else {
         let nenhumValor = document.createElement('span');
@@ -141,20 +137,31 @@ function renderizarlista(lista) {
 }
 
 function corpoLista(lista) {
-
     /**
         * Cria o corpo da tabela
         */
     let corpoTabela = document.createElement('tbody');
-    
+
+
     for (let i = 0; i < lista.length; i++) {
 
         let linha = document.createElement('tr');
-       
-        let check = document.createElement('td');
 
-        //criar a imagem (innerHTML ou createElement img)
-        check.innerHTML = '<img onclick = trocarImg(' + i + ')"id="trocarImg' + i + '" src="src/img/carrinhodecompra.png"></img>';
+        let check = document.createElement('td');
+        let img = document.createElement('img');
+        img.setAttribute('id', 'item' + i);
+        
+        img.setAttribute('onclick', 'checar(' + i + ')');
+        if (this.lista[i].checado == true) {
+            img.setAttribute("src", "./src/img/check.png");
+        }else{
+            
+            img.setAttribute("src", "./src/img/carrinhodecompra.png");
+        }
+    
+        check.appendChild(img);
+
+      
         linha.appendChild(check);
 
         let valores = document.createElement('td');
@@ -163,25 +170,24 @@ function corpoLista(lista) {
 
         let excluir = document.createElement('td');
 
-        excluir.innerHTML = '<a href="#" onclick="deleteRow(\'' + lista[i].descricao + '\');"><img src="src/img/lixeira.png"></a>';
+        excluir.innerHTML = '<a href="#" onclick="deletarProduto(\'' + lista[i].descricao + '\');"><img src="src/img/lixeira.png"></a>';
         linha.appendChild(excluir);
 
-        //Adiciona a nova linha no corpo da tabela
+
         corpoTabela.appendChild(linha);
     }
     return corpoTabela;
 
 }
 
-function trocarImg(indice) {
 
-    let img = document.getElementById(`trocarImg${indice}`).src;
+function checar(i) {
+    
 
-    if (img.indexOf('check.png') != -1) {
-        document.getElementById(`trocarImg${indice}`).src = './src/img/carrinhodecompra.png';
-    }else{
-        document.getElementById(`trocarImg${indice}`).src = 'src/img/check.png';
-    }
+    let img = document.getElementById('item' + i);
+    img.setAttribute('src', './src/img/check.png');
+    this.lista[i].checado = true;
+    
 
 }
 
@@ -196,6 +202,16 @@ function limparFormulario() {
 }
 
 
+function salvar(itens) {
+    lista.push(itens);
+}
+
+
+function recuperarTodos() {
+    return lista;
+}
+
+
 function removerItem(descricao) {
     for (let i = 0; i < lista.length; i++) {
         if (descricao == lista[i].descricao) {
@@ -204,58 +220,35 @@ function removerItem(descricao) {
     }
 }
 
-
-function recuperarTodos() {
-    return lista;
-}
-
-function deleteRow(descricao) {
+function deletarProduto(descricao) {
     removerItem(descricao);
     let listaRecuperada = recuperarTodos();
-    renderizarlista(listaRecuperada);
+    renderizarLista(listaRecuperada);
 }
 
 
-// function filtrar(lista) {
-//     let listaFiltrada = lista;
-//     if (lista.length > 0) {
-//         listaFiltrada = lista.filter(function (lista) {
-//             let descricao = lista.itens.descricao.toLowerCase();
-//             let unidade = lista.itens.unidade.toLowerCase();
+function filtrar(filtro) {
+    if (lista.length > 0) {
+        proFiltrados = lista.filter(function (itens) {
+            let item = itens.descricao.toLowerCase();
 
-//             /**
-//              * Se o nome ou o e-mail do contato
-//              * conter o filtro do usuário, retorno
-//              * o contato
-//              */
+            return item.includes(filtro);
+        });
+    }
+    return proFiltrados;
+}
 
-//             return descricao.includes(filtro) || unidade.includes(filtro)
-//         });
+function filtrarItens() {
+    let filtro = document.getElementById('filtro').value;
+    filtro = filtro.toLowerCase();
 
-//     }
+    let itens = filtrar(filtro);
 
-//     return listaFiltrada;
-// }
+    renderizarLista(itens);
+}
 
-
-// function filtrarLista() {
-
-//     let filtro = document.getElementById('filtro').value;
-//     filtro = filtro.toLowerCase();
-//     console.log(filtro);
-
-//     /**
-//      * Filtra as Compras de acordo
-//      * com o texto digitado pelo 
-//      * usuário no campo de filtro
-//      */
-//     filtro.innerHTML = filtrar(lista);
-
-//    return filtro;
-
-// }
 
 
 adicionar();
 
-
+renderizarLista();
