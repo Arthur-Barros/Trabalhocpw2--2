@@ -1,7 +1,5 @@
-## Trabalhocpw2--2
-
 <h1 align="center">
-Trabalho realizado para disciplina Construção de Páginas Web
+Trabalho realizado para disciplina Construção de Página Web
 </h1>
 
 ### Visualização
