@@ -13,7 +13,7 @@ Trabalho realizado para disciplina Construção de Página Web
 ---
 
 ## :computer: Indice
-- [Sobre](#sobre) | [Tecnologias utilizadas](#tecnologias-utilizadas) | [Como utilizar](#como-utilizar) | [Como rodar a aplicação](#como-rodar-a-aplicação)
+- [Sobre](#bookmark-sobre) | [Tecnologias utilizadas](#rocket-tecnologias-utilizadas) | [Como utilizar](#electric_plug-como-utilizar) | [Como rodar a aplicação](#file_folder-como-rodar-a-aplicação)
 
 ---
 
